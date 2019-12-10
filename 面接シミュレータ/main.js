@@ -35,7 +35,6 @@ window.onload = function(){
 	document.getElementById( button4 ).innerText = D[0];
 	document.getElementById( button5 ).innerText = E[0];//ここまで
 
-
 	for(var e in ID){
 		document.getElementById(e).innerText
 	}
