@@ -17,22 +17,32 @@ var ID={
 	button5
 }
 
-window.onload = function(){
-// ページ読み込み時に実行したい処理(初期化処理)
-document.getElementById( Text ).innerText = Q[0];//質問の読み込み
-document.getElementById( button1 ).innerText = A[0];//回答の読み込み
-document.getElementById( button2 ).innerText = B[0];
-document.getElementById( button3 ).innerText = C[0];
-document.getElementById( button4 ).innerText = D[0];
-document.getElementById( button5 ).innerText = E[0];//ここまで
-
-for(var e in ID){
-	document.getElementById(e).innerText
+function getCSV(){
+	var req =new XMLHttpRequest();
+	req.open("get","questions.csv",true);
+	req.send(null);
+	req.onload=function(){
+		convertCSVtoArray(req.responseText());
+	}
 }
 
-document.getElementById( button3 ).style.display= none ;
-document.getElementById( button4 ).style.display= none ;
-document.getElementById( button5 ).style.display= none ;
+window.onload = function(){
+	// ページ読み込み時に実行したい処理(初期化処理)
+	document.getElementById( Text ).innerText = Q[0];//質問の読み込み
+	document.getElementById( button1 ).innerText = A[0];//回答の読み込み
+	document.getElementById( button2 ).innerText = B[0];
+	document.getElementById( button3 ).innerText = C[0];
+	document.getElementById( button4 ).innerText = D[0];
+	document.getElementById( button5 ).innerText = E[0];//ここまで
+
+
+	for(var e in ID){
+		document.getElementById(e).innerText
+	}
+
+	document.getElementById( button3 ).style.display= none ;
+	document.getElementById( button4 ).style.display= none ;
+	document.getElementById( button5 ).style.display= none ;
 }
 
 function Change(choice){//分岐を受け取り,評価値を受け取る
