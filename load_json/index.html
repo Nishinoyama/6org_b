@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+ <script type="text/javascript">
+   function getJson() {
+     //var xmlhttp = createXMLHttpRequest(); //旧バージョンのIEなどに対応する場合
+     var xmlhttp = new XMLHttpRequest();
+
+     xmlhttp.onreadystatechange = function () {
+       if (xmlhttp.readyState == 4) {
+         if (xmlhttp.status == 200) {
+           var data = JSON.parse(xmlhttp.responseText);
+
+           var elem = document.getElementById("output_name");
+           elem.innerText = data.name;
+           var elem = document.getElementById("output_weight");
+           elem.innerText = data.weight;
+           var elem = document.getElementById("output_height");
+           elem.innerText = data.height;
+           var elem = document.getElementById("output_price");
+           elem.innerText = data.price;
+           var elem = document.getElementById("output_memo");
+           elem.innerText = data.memo;
+         } else {
+         }
+       }
+     }
+     xmlhttp.open("GET", "data.json");
+     xmlhttp.send();
+   }
+
+   function createXMLHttpRequest() {
+     if (window.XMLHttpRequest) { return new XMLHttpRequest() }
+     if (window.ActiveXObject) {
+       try { return new ActiveXObject("Msxml2.XMLHTTP.6.0") } catch (e) { }
+       try { return new ActiveXObject("Msxml2.XMLHTTP.3.0") } catch (e) { }
+       try { return new ActiveXObject("Microsoft.XMLHTTP") } catch (e) { }
+     }
+     return false;
+   }
+
+  </script>
+
+</head>
+<body>
+  <input id="Button_Get" type="button" value="JSON読み込み" onclick="getJson();" />
+  <hr />
+  <div>受信情報</div>
+  Name:<span id="output_name"></span><br />
+  Height:<span id="output_height"></span><br />
+  Weight:<span id="output_weight"></span><br />
+  Price:<span id="output_price"></span><br />
+  Memo:<span id="output_memo"></span><br />
+
+</body>
+</html>

@@ -17,6 +17,7 @@ var ID={
 	button5
 }
 
+/*
 function getCSV(){
 	var req =new XMLHttpRequest();
 	req.open("get","questions.csv",true);
@@ -24,7 +25,7 @@ function getCSV(){
 	req.onload=function(){
 		convertCSVtoArray(req.responseText());
 	}
-}
+}*/
 
 window.onload = function(){
 	// ページ読み込み時に実行したい処理(初期化処理)
