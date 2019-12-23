@@ -1,19 +1,19 @@
 let cnt = 0;//回答済み問題数
 var fs = require("fs");
-var data = JSON.parse(fs.readFileSync('questions.json', 'utf-8'));
+var data = JSON.parse(fs.readFileSync('questions.json', 'utf-8'));	//読み込みたいファイル(ここでは questions.json )
 var questions=[];
 var answerNum=[]
 var answers=[[]];
 let floor = data.length;//問題数
 
-var comp=0,analysis=0,urge=0,com=0;
+var comp=0,analysis=0,urge=0,com=0;//理解力，自己分析力，意欲，コミュニケーション能力
 
 window.onload = function(){
 	cnt=0;
 	loadQ(cnt);
 }
 
-function loadQ(q){
+function loadQ(q){		//質問読み込み q:質問番号
 	document.getElementById("Text").innerText=String(data[q]["質問"]);
 	for(var a=0;a<5;a++){
 		if(a<data[q]["選択肢数"]){
@@ -41,7 +41,7 @@ function Change(choice){
 	}
 	if(cnt>=floor-1 || (cnt==0 && choice==1)){
 		var score=comp+analysis+urge+com;
-		var resultText="";
+		var resultText="";	//終了メッセージ
 		if(cnt ==0 || ( comp || analysis || urge || com) < 10 || score< 48){
 			resultText+="面接不合格です\n";
 		}else{
