@@ -1,0 +1,183 @@
+#button1{
+  display: inline-block;
+  padding: 0.5em 2em;
+  text-decoration: none;
+  background: #f7f7f7;
+  border-left: solid 10px #ff7c5c;/*左線*/
+  color: #ff7c5c;/*文字色*/
+  font-weight: bold;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+  top:300px;
+}
+#button1:active {
+  box-shadow: inset 0 0 2px rgba(128, 128, 128, 0.1);
+  transform: translateY(2px);
+}
+#button2{
+  display: inline-block;
+  padding: 0.5em 2em;
+  text-decoration: none;
+  background: #f7f7f7;
+  border-left: solid 10px #00008b;/*左線*/
+  color: #00008b;/*文字色*/
+  font-weight: bold;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+  top:400px;
+}
+#button2:active {
+  box-shadow: inset 0 0 2px rgba(128, 128, 128, 0.1);
+  transform: translateY(2px);
+}
+#button3{
+  display: inline-block;
+  padding: 0.5em 2em;
+  text-decoration: none;
+  background: #f7f7f7;
+  border-left: solid 10px #008b00;/*左線*/
+  color: #00008b;/*文字色*/
+  font-weight: bold;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+  top:500px;
+}
+#button3:active {
+  box-shadow: inset 0 0 2px rgba(128, 128, 128, 0.1);
+  transform: translateY(2px);
+}
+#button4{
+  display: inline-block;
+  padding: 0.5em 2em;
+  text-decoration: none;
+  background: #f7f7f7;
+  border-left: solid 10px #8b0000;/*左線*/
+  color: #00008b;/*文字色*/
+  font-weight: bold;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+  top:600px;
+}
+#button4:active {
+  box-shadow: inset 0 0 2px rgba(128, 128, 128, 0.1);
+  transform: translateY(2px);
+}
+#button5{
+  display: inline-block;
+  padding: 0.5em 2em;
+  text-decoration: none;
+  background: #f7f7f7;
+  border-left: solid 10px #08b8b0;/*左線*/
+  color: #00008b;/*文字色*/
+  font-weight: bold;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+  top:700px;
+}
+#button5:active {
+  box-shadow: inset 0 0 2px rgba(128, 128, 128, 0.1);
+  transform: translateY(2px);
+}
+
+.Button{
+  float: left;
+  margin-left: 20px;
+}
+
+/*文字の背景*/
+.gauge_wrap2 {
+  /* position :relative; */
+  margin: auto;
+  background-color: #000;
+  width: 70%;
+  border: 10px solid black;
+  border-radius: 5px;
+}
+
+/*文字のfont*/
+.gauge_ttl{
+  padding-left: 5px;
+  color: #FFF;
+  font-size: 1.2rem;
+}
+
+/*ゲージの表示(中身)*/
+.gauge_main {
+  display: block;
+  width: 88%;
+  height: 30px;
+  border: solid 5px;
+  border-radius: 10px;
+  /* background: -webkit-gradient(linear, left top, right bottom, from(#00bfff), to(#00ff7f)); */
+  background: linear-gradient( 70deg, #00bbff, #00ff7f );
+  animation: 3333ms linear infinite both gauge_color;
+}
+.gauge_erase {
+  display: block;
+  width: 20%;
+  right: 0%;
+  height: 30px;
+  /* background: -webkit-gradient(linear, left top, right bottom, from(#00bfff), to(#00ff7f)); */
+  background: black;
+  animation: 3333ms linear infinite both gauge_shorten;
+}
+@keyframes gauge_color{
+  0%{
+    /* background: linear-gradient( 70deg, #00bbff, #00ff7f ); */
+    background: #00bbff;
+  }
+  60%{
+    /* background: linear-gradient( 70deg, #ff4400, #ff0060 ); */
+    background: #ff0060;
+  }
+}
+@keyframes gauge_shorten{
+  0%{
+    width:0%;
+  }
+  80%{
+    width: 110%;
+  }
+  100%{
+    width: 100%;
+  }
+}
+
+#rogo{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+}
+
+div#hitoBox{
+  display: block;
+  width: 60%;
+  max-width: 480px;
+  margin: auto;
+  margin-bottom: -60px;
+  img{
+    width: 100%;
+    max-width: 480px;
+    height: 100%;
+    max-height: 360px;
+    z-index: 0;
+  }
+}
+
+div#questionMessageBox{
+  color: white;
+  font-size: 24px;
+  text-align: center;
+  display: block;
+  width: 70%;
+  height: 120px;
+  margin: auto;
+  z-index: 3;
+  background: hsla(0,0%,50%,222);
+  #messageBox{
+    height: 100%;
+    width: 100%;
+    background: hsla(0,0%,50%,222);
+  }
+}
+
+div#answeringButtonBox{
+  display: flex;
+  width: 80%;
+  margin: auto;
+}
