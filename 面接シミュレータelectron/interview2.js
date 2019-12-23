@@ -1,10 +1,10 @@
-let floor = 37;//問題数
 let cnt = 0;//回答済み問題数
 var fs = require("fs");
 var data = JSON.parse(fs.readFileSync('questions.json', 'utf-8'));
 var questions=[];
 var answerNum=[]
 var answers=[[]];
+let floor = data.length;//問題数
 
 var comp=0,analysis=0,urge=0,com=0;
 
