@@ -86,7 +86,7 @@
   background-color: #000;
   width: 70%;
   border: 10px solid black;
-  border-radius: 5px;
+  border-radius:10px;
 }
 
 /*文字のfont*/
@@ -114,7 +114,7 @@
   height: 30px;
   /* background: -webkit-gradient(linear, left top, right bottom, from(#00bfff), to(#00ff7f)); */
   background: black;
-  animation: 3333ms linear infinite both gauge_shorten;
+  animation: 33333ms linear infinite both gauge_shorten;
 }
 @keyframes gauge_color{
   0%{

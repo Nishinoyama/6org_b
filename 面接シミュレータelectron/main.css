@@ -135,7 +135,7 @@
   height: 30px;
   /* background: -webkit-gradient(linear, left top, right bottom, from(#00bfff), to(#00ff7f)); */
   background: black;
-  animation: 3333ms linear infinite both gauge_shorten;
+  animation: 6666ms linear infinite both gauge_shorten;
 }
 
 @keyframes gauge_color {

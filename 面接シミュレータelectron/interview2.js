@@ -1,10 +1,10 @@
-let cnt = 0;//回答済み問題数
 var fs = require("fs");
 var data = JSON.parse(fs.readFileSync('questions.json', 'utf-8'));	//読み込みたいファイル(ここでは questions.json )
 var questions=[];
 var answerNum=[]
 var answers=[[]];
 let floor = data.length;//問題数
+let cnt = 0;//回答済み問題数
 
 var comp=0,analysis=0,urge=0,com=0;//理解力，自己分析力，意欲，コミュニケーション能力
 
@@ -14,14 +14,34 @@ window.onload = function(){
 }
 
 function loadQ(q){		//質問読み込み q:質問番号
-	document.getElementById("Text").innerText=String(data[q]["質問"]);
-	for(var a=0;a<5;a++){
-		if(a<data[q]["選択肢数"]){
-			document.getElementById("button"+String(a+1)).innerText=data[q]["選択肢"+String(a+1)];
-			document.getElementById("button"+String(a+1)).style.display="block";
-		}else{
-			document.getElementById("button"+String(a+1)).style.display="none";
+	disableButtons();
+	var questionString=String(data[q]["質問"]);
+	var count=0;
+	var message = function(){
+		document.getElementById("Text").innerText=String(questionString.substring(0,count));
+		var id = setTimeout(message, 125);
+		var picSrc=new Array("syuukatu.png","syuukatu2.png");
+		document.getElementById("hito").src=picSrc[count%2];
+		count++;
+		if(count > questionString.length){　
+			document.getElementById("hito").src=picSrc[0];
+			for(var a=0;a<5;a++){
+				if(a<data[q]["選択肢数"]){
+					document.getElementById("button"+String(a+1)).innerText=data[q]["選択肢"+String(a+1)];
+					document.getElementById("button"+String(a+1)).style.display="block";
+				}else{
+					document.getElementById("button"+String(a+1)).style.display="none";
+				}
+			}
+			clearTimeout(id);　//idをclearTimeoutで指定している
 		}
+ 	}
+ 	message();
+}
+
+function disableButtons(){
+	for(var a=0;a<5;a++){
+		document.getElementById("button"+String(a+1)).style.display="none";
 	}
 }
 
