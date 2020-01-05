@@ -10,6 +10,7 @@ var comp=0,analysis=0,urge=0,com=0;//理解力，自己分析力，意欲，コ�
 
 window.onload = function(){
 	cnt=0;
+	comp=0,analysis=0,urge=0,com=0;
 	loadQ(cnt);
 }
 
@@ -72,6 +73,7 @@ function Change(choice){
 		for(var i=1;i<=5;i++){
 			document.getElementById("button"+String(i)).style.display="none";
 		}
+		Result();
 	}else{
 		cnt++;
 		loadQ(cnt);
@@ -80,4 +82,14 @@ function Change(choice){
 
 function Reload(){
 	location.reload();
+}
+
+function Back(){
+	document.location.href = "start.html";
+	comp=0,analysis=0,urge=0,com=0;
+}
+
+function Result(){
+	document.location.href = "result.html";
+	comp=0,analysis=0,urge=0,com=0;
 }
